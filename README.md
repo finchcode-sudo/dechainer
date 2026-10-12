@@ -1,5 +1,4 @@
 <div align="center">
-
 <img src="docs/logo.png" width="128" alt="Déchaîner logo">
 
 # Déchaîner
@@ -17,6 +16,9 @@ built so that your future self can't simply turn it off.
 [**Download the latest APK**](https://github.com/warleysr/dechainer/releases/latest) · [How it works](#how-it-works) · [Features](#features) · [Installation](#installation) · [Recovery](#recovery-and-safety)
 
 </div>
+
+>[!TIP]  
+>"In your struggle against sin, you have not yet resisted to the point of shedding your blood." - Hebrews 12:4
 
 <br>
 
