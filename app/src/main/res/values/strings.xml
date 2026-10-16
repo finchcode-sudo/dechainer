@@ -536,4 +536,15 @@
     <string name="focus_reminder_start">Start</string>
     <string name="focus_reminder_snooze">Remind me in 5 min</string>
     <string name="focus_reminder_cannot_start">I can\'t start now</string>
+
+    <string name="dhizuku_server">Dhizuku server</string>
+    <string name="dhizuku_server_desc">Lets approved apps use Déchaîner\'s device owner permission</string>
+    <string name="dhizuku_server_explanation">Dhizuku lets other apps act through Déchaîner\'s device owner permission, so a second device owner is not needed. Every app needs your approval with the recovery code, and you can revoke it here.</string>
+    <string name="dhizuku_server_enable">Enable server</string>
+    <string name="dhizuku_clients_section">Authorized apps</string>
+    <string name="dhizuku_no_clients">No app authorized yet</string>
+    <string name="dhizuku_revoke">Revoke</string>
+    <string name="dhizuku_request_title">Dhizuku permission request</string>
+    <string name="dhizuku_allow">Allow</string>
+    <string name="dhizuku_reject">Reject</string>
 </resources>
