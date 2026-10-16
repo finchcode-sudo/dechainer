@@ -112,8 +112,6 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.shizuku.api)
     implementation(libs.shizuku.provider)
-    implementation(libs.dhizuku.api)
-    implementation(libs.dhizuku.server.api)
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.timber)

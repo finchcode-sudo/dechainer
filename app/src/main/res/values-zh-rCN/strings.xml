@@ -532,15 +532,4 @@
     <string name="focus_reminder_start">开始</string>
     <string name="focus_reminder_snooze">5 分钟后提醒我</string>
     <string name="focus_reminder_cannot_start">我现在不能开始</string>
-
-    <string name="dhizuku_server">Dhizuku 服务</string>
-    <string name="dhizuku_server_desc">让已批准的应用使用 Déchaîner 的设备所有者权限</string>
-    <string name="dhizuku_server_explanation">Dhizuku 让其他应用借用 Déchaîner 的设备所有者权限，不再需要第二个设备所有者。每个应用都要用恢复码批准，你可以在这里随时撤销。</string>
-    <string name="dhizuku_server_enable">启用服务</string>
-    <string name="dhizuku_clients_section">已授权的应用</string>
-    <string name="dhizuku_no_clients">尚未授权任何应用</string>
-    <string name="dhizuku_revoke">撤销</string>
-    <string name="dhizuku_request_title">Dhizuku 权限请求</string>
-    <string name="dhizuku_allow">允许</string>
-    <string name="dhizuku_reject">拒绝</string>
 </resources>

@@ -185,25 +185,6 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
 
-        <activity
-            android:name=".dhizuku.DhizukuRequestActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Dechainer"
-            android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
-            android:taskAffinity="">
-            <intent-filter>
-                <action android:name="${applicationId}.action.REQUEST_DHIZUKU_PERMISSION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <provider
-            android:name=".dhizuku.DechainerDhizukuProvider"
-            android:authorities="${applicationId}.dhizuku_server.provider"
-            android:enabled="true"
-            android:exported="true" />
-
     </application>
 
 </manifest>

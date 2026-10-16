@@ -15,8 +15,6 @@ composeBom = "2025.12.01"
 litert = "2.2.0"
 materialIconsExtended = "1.7.8"
 shizuku = "13.1.5"
-dhizuku = "2.5.4"
-dhizukuServer = "0.0.10"
 timber = "5.0.1"
 robolectric = "4.16.1"
 kotest = "5.9.1"
@@ -47,8 +45,6 @@ androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 litert = { module = "com.google.ai.edge.litert:litert", version.ref = "litert" }
-dhizuku-api = { module = "io.github.iamr0s:Dhizuku-API", version.ref = "dhizuku" }
-dhizuku-server-api = { group = "io.github.iamr0s", name = "Dhizuku-SERVER_API", version.ref = "dhizukuServer" }
 shizuku-api = { module = "dev.rikka.shizuku:api", version.ref = "shizuku" }
 shizuku-provider = { module = "dev.rikka.shizuku:provider", version.ref = "shizuku" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }

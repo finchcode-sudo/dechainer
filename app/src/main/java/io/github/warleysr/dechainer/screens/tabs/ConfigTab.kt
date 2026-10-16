@@ -32,7 +32,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import io.github.warleysr.dechainer.DechainerAccessibilityService
 import io.github.warleysr.dechainer.R
-import io.github.warleysr.dechainer.screens.common.DhizukuServerDialog
 import io.github.warleysr.dechainer.screens.common.RecoveryGateDialog
 import io.github.warleysr.dechainer.screens.common.RecoveryGenerateDialog
 import io.github.warleysr.dechainer.screens.common.rememberRecoveryGate
@@ -61,7 +60,6 @@ fun ConfigTab(
     var showKeyboardDialog by remember { mutableStateOf(false) }
     var showRecoveryDialog by remember { mutableStateOf(false) }
     val recoveryGate = rememberRecoveryGate()
-    var showDhizukuDialog by remember { mutableStateOf(false) }
     var showStartForcedRemovalDialog by remember { mutableStateOf(false) }
     var showCancelForcedRemovalDialog by remember { mutableStateOf(false) }
     var showFinishForcedRemovalDialog by remember { mutableStateOf(false) }
@@ -322,15 +320,6 @@ fun ConfigTab(
                 )
                 HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
             }
-            item {
-                ListItem(
-                    headlineContent = { Text(stringResource(R.string.dhizuku_server)) },
-                    supportingContent = { Text(stringResource(R.string.dhizuku_server_desc)) },
-                    leadingContent = { Icon(Icons.Outlined.Dns, "") },
-                    modifier = Modifier.clickable { showDhizukuDialog = true }
-                )
-                HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
-            }
         }
         SnackbarHost(
             hostState = snackbarHostState,
@@ -506,7 +495,6 @@ fun ConfigTab(
         )
     }
 
-    if (showDhizukuDialog) DhizukuServerDialog(recoveryGate) { showDhizukuDialog = false }
     RecoveryGateDialog(recoveryGate)
 }
 
