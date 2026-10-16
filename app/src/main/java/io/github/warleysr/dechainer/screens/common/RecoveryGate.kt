@@ -2,14 +2,12 @@ package io.github.warleysr.dechainer.screens.common
 
 import android.content.Context
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import io.github.warleysr.dechainer.security.SecurityManager
-import kotlinx.coroutines.delay
 
 /**
  * Gates a sensitive action behind the recovery-code dialog, unless a recovery session is already
@@ -23,15 +21,7 @@ class RecoveryGate(private val context: Context) {
     val isDialogVisible: Boolean get() = pendingAction != null
 
     /** Whether a recovery session is active — screens use this to enable/disable gated controls. */
-    var isSessionActive by mutableStateOf(SecurityManager.isSessionActive())
-        internal set
-
-    fun updateSessionActive() {
-        val active = SecurityManager.isSessionActive()
-        if (isSessionActive != active) {
-            isSessionActive = active
-        }
-    }
+    val isSessionActive: Boolean get() = SecurityManager.isSessionActive()
 
     /** [onCancel] runs if the user dismisses the dialog instead of confirming — for rolling back optimistic UI updates. */
     fun run(onCancel: (() -> Unit)? = null, action: () -> Unit) {
@@ -47,7 +37,6 @@ class RecoveryGate(private val context: Context) {
     fun confirm(code: String): Boolean {
         val storedCode = SecurityManager.getRecoveryCode(context) ?: return true
         if (!SecurityManager.validateRecoveryCode(code, storedCode)) return false
-        updateSessionActive()
         pendingAction?.invoke()
         clear()
         return true
@@ -67,22 +56,7 @@ class RecoveryGate(private val context: Context) {
 @Composable
 fun rememberRecoveryGate(): RecoveryGate {
     val context = LocalContext.current
-    val gate = remember { RecoveryGate(context) }
-
-    LaunchedEffect(gate, SecurityManager.sessionEndTime) {
-        gate.updateSessionActive()
-        while (gate.isSessionActive) {
-            val remaining = SecurityManager.sessionEndTime - System.currentTimeMillis()
-            if (remaining <= 0) {
-                gate.updateSessionActive()
-                break
-            }
-            delay(remaining.coerceAtMost(1000L))
-            gate.updateSessionActive()
-        }
-    }
-
-    return gate
+    return remember { RecoveryGate(context) }
 }
 
 @Composable

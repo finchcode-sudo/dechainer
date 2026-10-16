@@ -98,14 +98,6 @@
             android:noHistory="true"
             android:launchMode="singleInstance"
             android:taskAffinity="" />
-        <activity
-            android:name=".activities.FocusReminderActivity"
-            android:showOnLockScreen="true"
-            android:theme="@style/Theme.Dechainer"
-            android:excludeFromRecents="true"
-            android:noHistory="true"
-            android:launchMode="singleInstance"
-            android:taskAffinity="" />
 
         <receiver
             android:name=".DechainerDeviceAdminReceiver"
@@ -138,10 +130,6 @@
             android:exported="false" />
 
         <receiver
-            android:name=".notifications.FocusScheduleReceiver"
-            android:exported="false" />
-
-        <receiver
             android:name=".notifications.ApkUpdateResultReceiver"
             android:exported="false" />
 
@@ -161,7 +149,6 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
                 <action android:name="android.intent.action.TIME_SET" />
-                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
             </intent-filter>
         </receiver>
 
