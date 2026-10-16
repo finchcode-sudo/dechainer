@@ -176,7 +176,6 @@
     <string name="apk_update_new_version">新版本：%1$s</string>
     <string name="apk_update_confirm">更新</string>
     <string name="apk_update_new_app">此 APK 会安装一个新应用。只允许更新已安装的应用。</string>
-    <string name="apk_update_downgrade">此 APK 的版本低于已安装的版本。</string>
     <string name="apk_update_invalid">无法读取该 APK。</string>
     <string name="apk_update_success">应用已更新</string>
     <string name="apk_update_signature_mismatch">APK 签名与已安装的应用不一致</string>
@@ -506,4 +505,31 @@
     <string name="focus_apps_section">专注期间要冻结的应用</string>
     <string name="focus_requires_device_owner">选择应用需要设备所有者权限——没有该权限时，专注模式仅作为计时器使用</string>
     <string name="focus_channel_timer">专注模式计时器</string>
+
+    <!-- Focus schedules and restrictions -->
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+    <string name="focus_restrictions_section">专注期间的系统限制</string>
+    <string name="focus_restrictions_selected">已选择 %1$d 项限制</string>
+    <string name="focus_no_restrictions">未选择限制</string>
+    <string name="focus_select_restrictions">选择限制</string>
+    <string name="focus_restrictions_dialog_title">选择系统限制</string>
+    <string name="focus_restrictions_explanation">所选限制将在专注期间通过 DPC 应用，并在会话结束时恢复。</string>
+    <string name="focus_schedules_section">定时专注</string>
+    <string name="focus_add_schedule">添加计划</string>
+    <string name="focus_edit_schedule">编辑计划</string>
+    <string name="focus_no_schedules">没有定时专注</string>
+    <string name="focus_schedule_days_weekdays">周一至周五</string>
+    <string name="focus_schedule_days_weekend">周末</string>
+    <string name="focus_schedule_days_all">每天</string>
+    <string name="focus_schedule_dialog_title">定时专注</string>
+    <string name="focus_schedule_time">时间</string>
+    <string name="focus_schedule_days">星期</string>
+    <string name="focus_schedule_select_days_warning">请至少选择一天</string>
+    <string name="focus_schedule_channel">定时专注提醒</string>
+    <string name="focus_reminder_title">该专注了！</string>
+    <string name="focus_reminder_desc">你的定时专注时段到了。现在开启专注模式，保持高效。</string>
+    <string name="focus_reminder_start">开始</string>
+    <string name="focus_reminder_snooze">5 分钟后提醒我</string>
+    <string name="focus_reminder_cannot_start">我现在不能开始</string>
 </resources>
