@@ -34,7 +34,7 @@ android {
 
     androidResources {
         noCompress.add("tflite")
-        localeFilters += listOf("en", "pt")
+        localeFilters += listOf("en", "pt", "zh")
     }
 
     packaging {
