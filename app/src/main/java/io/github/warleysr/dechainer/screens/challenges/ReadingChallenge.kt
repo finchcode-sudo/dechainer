@@ -31,7 +31,6 @@ private const val LETTER_MS = 45L
 private const val SHORT_PAUSE_MS = 250L
 private const val LONG_PAUSE_MS = 500L
 private const val LEAD_IN_MS = 600L
-private const val HAN_CHAR_MS = 200L
 
 /** How long a word takes to fade from "being read" to "read" after its turn ends. */
 private const val SETTLE_MS = 350f
@@ -42,17 +41,14 @@ private class TimedText(val words: List<TimedWord>, val totalMs: Long)
 
 private fun timeWords(text: String): TimedText {
     var cursor = LEAD_IN_MS
-    // Chinese has no spaces between words, so each Han character (with the punctuation around it)
-    // is its own unit, read at roughly 300 characters per minute.
-    val words = Regex("[\\p{Ps}\\p{Pi}]*\\p{IsHan}[\\p{Pe}\\p{Pf}\\p{Po}]*|[^\\s\\p{IsHan}]+").findAll(text).map { match ->
+    val words = Regex("\\S+").findAll(text).map { match ->
         val token = match.value
-        val isHan = token.any { Character.UnicodeScript.of(it.code) == Character.UnicodeScript.HAN }
         val letters = token.count { it.isLetterOrDigit() }
         val startMs = cursor
-        val endMs = startMs + if (isHan) HAN_CHAR_MS else WORD_BASE_MS + letters * LETTER_MS
+        val endMs = startMs + WORD_BASE_MS + letters * LETTER_MS
         cursor = endMs + when (token.last()) {
-            '.', '!', '?', '。', '！', '？' -> LONG_PAUSE_MS
-            ',', ';', ':', '—', '-', '，', '；', '：', '、' -> SHORT_PAUSE_MS
+            '.', '!', '?' -> LONG_PAUSE_MS
+            ',', ';', ':', '—', '-' -> SHORT_PAUSE_MS
             else -> 0L
         }
         TimedWord(match.range.first, match.range.last + 1, startMs, endMs)
@@ -63,8 +59,8 @@ private fun timeWords(text: String): TimedText {
 @Composable
 fun ReadingChallenge(onSuccess: () -> Unit) {
     val context = LocalContext.current
-    val language = LocalConfiguration.current.locales[0].language
-    val passages = remember { ReadingLibrary.pick(context, language) }
+    val portuguese = LocalConfiguration.current.locales[0].language == "pt"
+    val passages = remember { ReadingLibrary.pick(context, portuguese) }
 
     if (passages.isEmpty()) {
         // Only possible with "my phrases" and none written: nothing to read, so nothing to hold back.

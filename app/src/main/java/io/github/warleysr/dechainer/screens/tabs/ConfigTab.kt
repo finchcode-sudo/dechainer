@@ -629,18 +629,11 @@ fun LanguageSelectionDialog(
     val currentLocale = LocaleUtils.getLocale(context)
     val options = listOf(
         "en" to "English",
-        "pt" to "Português",
-        "zh-CN" to "简体中文"
+        "pt" to "Português"
     )
     
     var selectedOption by remember { 
-        mutableStateOf(
-            when {
-                currentLocale.startsWith("pt") -> "pt"
-                currentLocale.startsWith("zh") -> "zh-CN"
-                else -> "en"
-            }
-        )
+        mutableStateOf(if (currentLocale.startsWith("pt")) "pt" else "en")
     }
 
     AlertDialog(
